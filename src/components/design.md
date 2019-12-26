@@ -7,3 +7,8 @@
 ### 待办事项列表组件
 1. 一个wrapper
 2. 包含todo的array
+
+### 待办事项表单组件
+1. input可以输入文本
+2. Enter handler
+3. 用shortid给新待办事项生成id

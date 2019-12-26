@@ -2,8 +2,9 @@
 import * as React from "react"
 import {render} from "react-dom"
 import {TodoInterface} from "./interfaces"
-import {TodoList} from "./components/todo-list"
-import {TodoForm} from "./components/todo-form"
+import TodoList from "./components/todo-list"
+import TodoForm from "./components/todo-form"
+
 import './styles/styles.css';
 
 // Todo List Tool Component

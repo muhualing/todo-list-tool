@@ -13,7 +13,7 @@ const TodoForm = (props: TodoFormInterface) => {
     }
 
     function handleInputEnter(event: React.KeyboardEvent) {
-        if (event.key == "Enter") {
+        if (event.key === "Enter") {
             const newTodo: TodoInterface = {
                 id: shortid.generate(),
                 text: formState,

@@ -9,7 +9,7 @@ const TodoItem = (props: TodoItemInterface) => {
             <div className="item-remove" onClick={() => props.handleTodoRemove(props.todo.id)}>
                 ×
             </div>
-            
+
             <div onClick={() => props.handleTodoComplete(props.todo.id)}>
                 {props.todo.isCompleted ? (
                     <span className="todo-item-checked">√</span>
@@ -19,11 +19,19 @@ const TodoItem = (props: TodoItemInterface) => {
             </div>
 
             <div className="todo-item-input-wrapper">
-                <input
-                    value={props.todo.text}
-                    onBlur={props.handleTodoBlur}
-                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => props.handleTodoUpdate(event, props.todo.id)}
-                />
+                {props.todo.isCompleted ? (
+                    <input className="todo-completed"
+                        value={props.todo.text}
+                        onBlur={props.handleTodoBlur}
+                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => props.handleTodoUpdate(event, props.todo.id)}
+                    />
+                ) : (
+                    <input
+                        value={props.todo.text}
+                        onBlur={props.handleTodoBlur}
+                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => props.handleTodoUpdate(event, props.todo.id)}
+                    />
+                )}
             </div>
         </div>
     )

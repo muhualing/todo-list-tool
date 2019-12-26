@@ -5,7 +5,7 @@ import {TodoInterface, TodoFormInterface} from "./../interfaces"
 
 // TodoForm Component
 const TodoForm = (props: TodoFormInterface) => {
-    const inputRef = React.useRef<HTMLInputElement>(null)
+    const inputRef:any = React.useRef<HTMLInputElement>(null)
     const [formState, setFormState] = React.useState("")
 
     function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -13,13 +13,15 @@ const TodoForm = (props: TodoFormInterface) => {
     }
 
     function handleInputEnter(event: React.KeyboardEvent) {
-        if (event.key === "Enter") {
-            const newTodo: TodoInterface = {
-                id: shortid.generate(),
-                text: formState,
-                isCompleted: false
+        if (event.key === "Enter"){
+            if (inputRef && inputRef.current.value !== "") {
+                const newTodo: TodoInterface = {
+                    id: shortid.generate(),
+                    text: formState,
+                    isCompleted: false
+                }
+                props.handleTodoCreate(newTodo)
             }
-            props.handleTodoCreate(newTodo)
             if (inputRef && inputRef.current) {
                 inputRef.current.value = ""
             }
